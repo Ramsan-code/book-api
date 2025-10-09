@@ -12,9 +12,10 @@
   },
   "license": "ISC",
   "author": "Ramsan",
-  "type": "commonjs",
+  "type": "module",
   "main": "w users to perform basic CRUD operations on a book collection.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "keywords": []
 }
