@@ -13,7 +13,7 @@
   "license": "ISC",
   "author": "Ramsan",
   "type": "module",
-  "main": "w users to perform basic CRUD operations on a book collection.",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
