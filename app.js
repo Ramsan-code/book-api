@@ -14,13 +14,12 @@ import express from "express";
 const app = express();
 const PORT = 2000;
 
-// app.get("/", (req, res) => {
-//   res.send("HI! EXPRESS");
-// });
-
+app.use(express.json());
+app.use("/api/books", bookRoutes);
 app.get("/", (req, res) => {
   res.send("HI! EXPRESS");
 });
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
+import bookRoutes from "./routes/bookRoutes.js";
