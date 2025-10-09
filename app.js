@@ -1,6 +1,4 @@
 // console.log("ef");
-// import express from "express";
-// const app = express();
 
 import mongoose from "mongoose";
 const connectDB = async () => {
@@ -12,3 +10,17 @@ const connectDB = async () => {
   }
 };
 connectDB();
+import express from "express";
+const app = express();
+const PORT = 2000;
+
+// app.get("/", (req, res) => {
+//   res.send("HI! EXPRESS");
+// });
+
+app.get("/", (req, res) => {
+  res.send("HI! EXPRESS");
+});
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
+});
