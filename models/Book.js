@@ -9,10 +9,5 @@ const bookSchema = new Schema({
   publishedYear: [{ type: Number, min: 1000 }],
   price: { type: Number, min: 0 },
   inStock: { type: Boolean, default: true },
-  hidden: Boolean,
-  meta: {
-    votes: Number,
-    favs: Number,
-  },
 });
 export default mongoose.model("Book", bookSchema);
