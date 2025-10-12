@@ -4,7 +4,20 @@ import Book from "../models/Book.js";
 //<----------Get all books from the database------------>
 export const getAllBooks = async (req, res) => {
   try {
-    const books = await Book.find();
+    //<----------------Add pagination to get all books endpoint-------------->
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 5;
+    const skip = (page - 1) * limit;
+    const books = await Book.find().skip(skip).limit(limit);
+    const totalBooks = await Book.countDocuments();
+    // const books = await Book.find()//;?page=1&limit=2
+    res.status(200).json({
+      totalBooks,
+      page,
+      totalPages: Math.ceil(totalBooks / limit),
+      count: books.length,
+      books,
+    });
     res.json(books);
   } catch (error) {
     res.status(500).json({ message: error.message });
