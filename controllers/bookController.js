@@ -1,8 +1,6 @@
 // console.log("eigjrsnkf");
 import Book from "../models/Book.js";
 
-//<----------Add a new book to the database----------->
-
 //<----------Get all books from the database------------>
 export const getAllBooks = async (req, res) => {
   try {
@@ -12,8 +10,20 @@ export const getAllBooks = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-//<---------------Get a single book by ID----------->
 
+//<----------Add a new book to the database----------->
+export const getBooksById = async (req, res) => {
+  try {
+    const bookID = req.params.id;
+    const book = await Book.findById(bookID);
+    res.json(book);
+  } catch (error) {}
+};
+//<---------------Get a single book by ID----------->
+// export const createBook = async (req, res) => {
+//   try {
+//   } catch (error) {}
+// };
 //<---------------Update a book information--------->
 
 //<---------------Delete a book from the database----->
