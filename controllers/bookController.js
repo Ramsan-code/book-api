@@ -10,7 +10,7 @@ export const getAllBooks = async (req, res) => {
     const skip = (page - 1) * limit;
     const books = await Book.find().skip(skip).limit(limit);
     const totalBooks = await Book.countDocuments();
-    // const books = await Book.find()//;?page=1&limit=2
+    // const books = await Book.find()//<--------?page=1&limit=2------->
     res.status(200).json({
       totalBooks,
       page,
