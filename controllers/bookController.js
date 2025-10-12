@@ -11,7 +11,7 @@ export const getAllBooks = async (req, res) => {
   }
 };
 
-//<----------Add a new book to the database----------->
+//<---------------Get a single book by ID----------->
 export const getBooksById = async (req, res) => {
   try {
     const bookID = req.params.id;
@@ -19,7 +19,9 @@ export const getBooksById = async (req, res) => {
     res.json(book);
   } catch (error) {}
 };
-//<---------------Get a single book by ID----------->
+
+//<----------Add a new book to the database----------->
+
 // export const createBook = async (req, res) => {
 //   try {
 //   } catch (error) {}
