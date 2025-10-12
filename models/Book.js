@@ -4,7 +4,13 @@ const { Schema } = mongoose;
 
 const bookSchema = new Schema(
   {
-    title: { type: String, required: true },
+    title: {
+      type: String,
+      //<----------Add validation for duplicate book titles------->
+      required: [true, "Book title is required"],
+      unique: true,
+      trim: true,
+    },
     author: { type: String, required: true },
     genre: { type: String },
     publishedYear: { type: Number, min: 1000 },
