@@ -27,6 +27,18 @@ export const createBook = async (req, res) => {
     res.json(book);
   } catch (error) {}
 };
+
 //<---------------Update a book information--------->
+export const updateBook = async (req, res) => {
+  try {
+    const bookID = req.params.id;
+    const updateData = req.body;
+    const updateBook = await Book.findByIdAndUpdate(bookID, updateData, {
+      new: true,
+      runValidators: true,
+    });
+    res.json(updateBook);
+  } catch (error) {}
+};
 
 //<---------------Delete a book from the database----->
