@@ -42,3 +42,11 @@ export const updateBook = async (req, res) => {
 };
 
 //<---------------Delete a book from the database----->
+
+export const deleteBook = async (req, res) => {
+  try {
+    const bookID = req.params.id;
+    const deleteBook = await Book.findByIdAndDelete(bookID);
+    res.json(deleteBook);
+  } catch (error) {}
+};
