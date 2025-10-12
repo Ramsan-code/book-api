@@ -11,6 +11,6 @@ const bookSchema = new Schema(
     price: { type: Number, min: 0 },
     inStock: { type: Boolean, default: true },
   },
-  { collection: "bookdb.books" }
+  { collection: "books" }
 );
 export default mongoose.model("Book", bookSchema);
