@@ -79,3 +79,22 @@ export const deleteBook = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+//<---------------Add a search endpoint by genre------------->
+export const getBooksByGenre = async (req, res) => {
+  try {
+    const { genre } = req.params;
+    if (!genre) {
+      return res.status(400).json({ message: "Genre is required" });
+    }
+    const books = await Book.find({
+      genre: { $regex: new RegExp(genre, "i") },
+    });
+    if (books.length === 0) {
+      return res.status(404).json({ message: ` genre invalid: ${genre}` });
+    }
+    res.status(200).json(books);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

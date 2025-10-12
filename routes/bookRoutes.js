@@ -6,10 +6,11 @@ import {
   createBook,
   updateBook,
   deleteBook,
+  getBooksByGenre,
 } from "../controllers/bookController.js";
 
 const router = express.Router();
-
+router.get("/genre/:genre", getBooksByGenre);
 router.get("/", getAllBooks);
 router.get("/:id", getBooksById);
 router.post("/", createBook);

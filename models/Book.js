@@ -6,7 +6,7 @@ const bookSchema = new Schema(
   {
     title: {
       type: String,
-      //<----------Add validation for duplicate book titles------->
+      //<----------Add validation for required------->
       required: [true, "Book title is required"],
       unique: true,
       trim: true,
