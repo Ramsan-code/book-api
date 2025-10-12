@@ -20,12 +20,13 @@ export const getBooksById = async (req, res) => {
   } catch (error) {}
 };
 
-//<----------Add a new book to the database----------->
-
-// export const createBook = async (req, res) => {
-//   try {
-//   } catch (error) {}
-// };
+//<-------------Add a new book to the database -------->
+export const createBook = async (req, res) => {
+  try {
+    const book = await Book.create(req.body);
+    res.json(book);
+  } catch (error) {}
+};
 //<---------------Update a book information--------->
 
 //<---------------Delete a book from the database----->
