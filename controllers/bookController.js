@@ -52,7 +52,7 @@ export const createBook = async (req, res) => {
     if (error.name === "ValidationError") {
       const errors = Object.values(error.errors).map((err) => ({
         field: err.path,
-        message: err.message,
+        message: err.message, 
       }));
       return res.status(400).json({ errors });
     }

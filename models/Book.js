@@ -11,11 +11,14 @@ const bookSchema = new Schema(
       unique: true,
       trim: true,
     },
-    author: { type: String, required: true },
+    author: { type: String, required: [true, "Author name is required"] },
     genre: { type: String },
     publishedYear: { type: Number, min: 1000 },
     price: { type: Number, min: 0 },
     inStock: { type: Boolean, default: true },
+  },{
+    timestamps: true,
+    versionKey: false
   },
   { collection: "books" }
 );
